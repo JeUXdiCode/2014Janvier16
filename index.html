@@ -15,7 +15,11 @@
 		<nav class="navbar navbar-default" role="navigation">
 			<a class="navbar-brand" href="#">Pomodoro</a>
 		</nav>
-		
+
+		<div class="form-group">
+				<input ng-model="filter" type="text" class="form-control" placeholder="Filtre" />
+		</div>
+
 		<table class="table">
 			<thead>
 				<th>Nom</th>
@@ -23,7 +27,7 @@
 				<th>Effectués</th>
 			</thead>
 			<tbody>
-				<tr ng-repeat="task in tasks">
+				<tr ng-repeat="task in tasks | filter:filter">
 					<td>{{task.name}}</td>
 					<td>{{task.estimatedCount}}</td>
 					<td>{{task.doneCount}}</td>
