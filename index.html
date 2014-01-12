@@ -5,6 +5,11 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
 		<script src="script.js"></script>
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+		<style type="text/css">
+			input.ng-invalid {
+				background-color: #FA787E;
+			}
+		</style>
 	</head>
 	<body class="container" ng-controller="PomodoroCtrl">
 		<nav class="navbar navbar-default" role="navigation">
@@ -26,14 +31,14 @@
 			</tbody>
 		</table>
 		
-		<form class="form-inline" role="form">
+		<form novalidate name="form" class="form-inline" role="form">
   		<div class="form-group">
-				<input ng-model="name" type="text" class="form-control" placeholder="Nom" />
+				<input ng-model="name" required type="text" class="form-control" placeholder="Nom" />
   		</div>
   		<div class="form-group">
-				<input ng-model="estimatedCount" type="text" class="form-control" placeholder="Nombre de Pomodoro" />
+				<input ng-model="estimatedCount" type="number" min="0" integer required class="form-control" placeholder="Nombre de Pomodoro" />
   		</div>
-			<button ng-click="add()"  class="btn btn-default">+</button>
+			<button ng-click="add()" class="btn btn-default">+</button>
 		</form>
 		
 	</body>
