@@ -4,3 +4,6 @@
 AngularJS et NodeJS
 
 
+Prérequis logiciel :
+
+Node.js - http://nodejs.org/download/
