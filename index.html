@@ -3,6 +3,7 @@
 	<head>
 		<title>JeUX di Code - AngularJS/NodeJS</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-route.min.js"></script>
 		<script src="script.js"></script>
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 		<style type="text/css">
@@ -16,34 +17,6 @@
 			<a class="navbar-brand" href="#">Pomodoro</a>
 		</nav>
 
-		<div class="form-group">
-				<input ng-model="filter" type="text" class="form-control" placeholder="Filtre" />
-		</div>
-
-		<table class="table">
-			<thead>
-				<th>Nom</th>
-				<th>Estimés</th>
-				<th>Effectués</th>
-			</thead>
-			<tbody>
-				<tr ng-repeat="task in tasks | filter:filter">
-					<td>{{task.name}}</td>
-					<td>{{task.estimatedCount}}</td>
-					<td>{{task.doneCount}}</td>
-				</tr>
-			</tbody>
-		</table>
-		
-		<form novalidate name="form" class="form-inline" role="form">
-  		<div class="form-group">
-				<input ng-model="name" required type="text" class="form-control" placeholder="Nom" />
-  		</div>
-  		<div class="form-group">
-				<input ng-model="estimatedCount" type="number" min="0" integer required class="form-control" placeholder="Nombre de Pomodoro" />
-  		</div>
-			<button ng-click="add()" class="btn btn-default">+</button>
-		</form>
-		
+		<div ng-view></div>
 	</body>
 </html>
