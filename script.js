@@ -54,5 +54,46 @@ angular
 		otherwise({
 			redirectTo: "/list"
 		})
+})
+.directive("countdown", function() {
+	return {
+		restrict: 'E',
+		template: '<button class="btn btn-default">' +
+			'<span ng-if="!running" ng-click="startTimer()" class="glyphicon glyphicon-play"></span>' +
+			'<span ng-if="running" ng-click="stopTimer()" class="glyphicon glyphicon-stop"> {{ getTime() }}</span>' +
+		'</button>',
+		scope: {
+			increment: '=increment'
+		},
+		controller: function($scope, $interval){
+			$scope.init = function(){
+				$scope.running = false;
+				$scope.time = 25 * 60;
+			};
+
+			$scope.getTime = function(){
+				return Math.floor($scope.time/60) + ':' + $scope.time%60;
+			}
+
+			$scope.startTimer = function(){
+
+				$scope.running = true;
+
+				$scope.interval = $interval(function(){
+					if($scope.time > 0){
+						$scope.time --;
+					}
+				}, 1000);
+			}
+
+			$scope.stopTimer = function(){
+				$interval.cancel($scope.interval);
+				$scope.init();
+				$scope.increment++;
+			}
+
+			$scope.init();
+		}
+	}
 });
 
