@@ -1,0 +1,9 @@
+<form novalidate name="form" class="form-inline" role="form">
+	<div class="form-group">
+		<input ng-model="task.name" required type="text" class="form-control" placeholder="Nom" />
+	</div>
+	<div class="form-group">
+		<input ng-model="task.estimatedCount" type="number" min="0" integer required class="form-control" placeholder="Nombre de Pomodoro" />
+	</div>
+	<button ng-click="add()" class="btn btn-default"><span class="glyphicon glyphicon-save"></span></button>
+</form>
